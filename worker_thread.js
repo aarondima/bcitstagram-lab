@@ -3,7 +3,7 @@ const IOhandler = require("./IOhandler")
 
 parentPort.on("message",(workerData) =>{
     const { img, pathProcessed, filter } = workerData;
-    IOhandler.grayScale(img,pathProcessed,filter)
-    parentPort.postMessage("done")
-    parentPort.close()
-})
+    IOhandler.grayScale(img,pathProcessed,filter);
+    parentPort.postMessage("done");
+    parentPort.close();
+});

@@ -37,7 +37,7 @@ async function unzip (pathIn, pathOut) {
   }
 } finally {
   await zip.close();
-  console.log("Extraction operation complete")
+  console.log("Extraction operation complete");
 }
   
 };
