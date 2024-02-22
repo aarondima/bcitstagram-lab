@@ -14,7 +14,7 @@ const zipFilePath = path.join(__dirname, "myfile.zip");
 const pathUnzipped = path.join(__dirname, "unzipped");
 const pathProcessed = path.join(__dirname, "grayscaled");
 const process = require("process");
-const { Workern} = require("worker_threads");
+const { Worker } = require("worker_threads");
 
 // Filter option entered in process arguments: grayscale, sepia, nothing for default
 const filter = process.argv[2]
