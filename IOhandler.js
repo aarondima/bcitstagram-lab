@@ -28,12 +28,7 @@ async function unzip (pathIn, pathOut) {
   try {
   for await (const entry of zip) {
     if (entry.filename.endsWith('/')) {
-      fs.promises.access(`${pathOut}/${entry.filename}`, fs.constants.F_OK, (err) =>{
-        if(err){
-          fs.promises.mkdir(`${pathOut}/${entry.filename}`)
-        }
-      })
-      // await fs.promises.mkdir(`${pathOut}/${entry.filename}`);
+      await fs.promises.mkdir(`${pathOut}/${entry.filename}`,{ recursive: true });
     } else {
       const readStream = await entry.openReadStream();
       const writeStream = fs.createWriteStream(`${pathOut}/${entry.filename}`);
