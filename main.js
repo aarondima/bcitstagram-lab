@@ -19,7 +19,7 @@ const { Worker, workerData } = require("worker_threads");
 
 
 const filter = process.argv[2]
-// IOhandler.unzip(zipFilePath,pathUnzipped)
+IOhandler.unzip(zipFilePath,pathUnzipped)
 
 IOhandler.readDir(pathUnzipped)
 .then(
