@@ -1,17 +1,8 @@
-const fs = require("fs"),
-  PNG = require("pngjs").PNG,
-  path = require("path");
-
-// const readStream = fs.createReadStream(path.join(__dirname,"unzipped",pathIn))
-// .pipe(
-//   new PNG({
-//     filterType: 4,
-//     colorType: 0
-//   })
-// )
-const pixelGrayscale = (red,green,blue) => {
+// Grayscale filter variable
+const grayScaleFilter = (red,green,blue) => {
     return (0.21*red+0.72*green+0.07*blue)
 }
+// Sepia filter list
 const sepiaFilter = (red,green,blue) => {
   const newR = parseInt((0.393*red + 0.769*green + 0.189*blue))
   const newG = parseInt((0.349*red + 0.686*green + 0.168*blue))
@@ -34,4 +25,4 @@ const sepiaFilter = (red,green,blue) => {
   }
   return [r,g,b]
 }
-module.exports = {pixelGrayscale, sepiaFilter}
+module.exports = {grayScaleFilter, sepiaFilter}

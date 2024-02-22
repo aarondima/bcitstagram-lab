@@ -14,7 +14,7 @@ const yauzl = require("yauzl-promise"),
   fs = require("fs"),
   PNG = require("pngjs").PNG,
   path = require("path"),
-  {pixelGrayscale,sepiaFilter} = require("./filter");
+  {grayScaleFilter,sepiaFilter} = require("./filter");
 
 /**
  * Description: decompress file from given pathIn, write to given pathOut
@@ -89,9 +89,10 @@ fs.createReadStream(path.join(__dirname,"unzipped",pathIn))
   for (var y = 0; y < this.height; y++) {
     for (var x = 0; x < this.width; x++) {
       var idx = (this.width * y + x) << 2;
+      // Option to choose filter, default is no filter
       switch(filter) {
         case "grayscale":
-          const rgbGrayscale = pixelGrayscale(this.data[idx], this.data[idx+1], this.data[idx+2]);
+          const rgbGrayscale = grayScaleFilter(this.data[idx], this.data[idx+1], this.data[idx+2]);
           this.data[idx] = this.data[idx+1] = this.data[idx+2] = rgbGrayscale;
           break;
         case "sepia":

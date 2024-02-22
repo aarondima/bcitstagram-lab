@@ -10,14 +10,13 @@ const path = require("path");
  */
 
 const IOhandler = require("./IOhandler");
-const { pipeline } = require("stream");
 const zipFilePath = path.join(__dirname, "myfile.zip");
 const pathUnzipped = path.join(__dirname, "unzipped");
 const pathProcessed = path.join(__dirname, "grayscaled");
 const process = require("process");
-const { Worker, workerData } = require("worker_threads");
+const { Workern} = require("worker_threads");
 
-
+// Filter option entered in process arguments: grayscale, sepia, nothing for default
 const filter = process.argv[2]
 IOhandler.unzip(zipFilePath,pathUnzipped)
 
